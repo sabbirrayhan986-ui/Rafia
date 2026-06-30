@@ -1,3 +1,4 @@
+console.log("Script Loaded");
 const pages = document.querySelectorAll(".page");
 
 const untilMusic = document.getElementById("untilMusic");
