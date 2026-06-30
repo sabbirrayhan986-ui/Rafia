@@ -6,9 +6,13 @@
     <title>Rafia ❤️</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 
 <body>
+
+<!-- MUSIC -->
 
 <audio id="untilMusic">
     <source src="until.mp3" type="audio/mpeg">
@@ -18,85 +22,127 @@
     <source src="birthday.mp3" type="audio/mpeg">
 </audio>
 
+<!-- FLOATING PETALS -->
+
+<div class="petals">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
 <!-- PAGE 1 -->
 
-<div class="page active" id="page1">
+<section class="page active" id="page1">
 
-    <h1>Let's Celebrate</h1>
-    <h2>Rafia's Birthday ❤️</h2>
+    <div class="content">
 
-    <button onclick="nextPage(1)">
-        Enter The Garden 🌹
-    </button>
+        <h1>Let's Celebrate</h1>
 
-</div>
+        <h2>Your Birthday ❤️</h2>
+
+        <h3>Rafia</h3>
+
+        <button onclick="nextPage(1)">
+            🌹 Enter The Garden 🌹
+        </button>
+
+    </div>
+
+</section>
 
 <!-- PAGE 2 -->
 
-<div class="page" id="page2">
+<section class="page" id="page2">
 
-    <div class="flowers">
-        🌹 🌷 🌸 🌺
+    <div class="garden">
+
+        <div class="flower rose"></div>
+        <div class="flower lily"></div>
+        <div class="flower tulip"></div>
+        <div class="flower gerbera"></div>
+
+        <h1>Welcome To The Garden</h1>
+
+        <p>Every flower blooms for you ❤️</p>
+
+        <button onclick="nextPage(2)">
+            Next ➜
+        </button>
+
     </div>
 
-    <h1>Welcome To The Garden</h1>
-
-    <button onclick="nextPage(2)">
-        Next ➜
-    </button>
-
-</div>
+</section>
 
 <!-- PAGE 3 -->
 
-<div class="page" id="page3">
+<section class="page" id="page3">
 
-    <h1>Pretty Rafia ❤️</h1>
+    <div class="birthday-box">
 
-    <img id="photo" src="photo1.jpg">
+        <h1>Happy Birthday</h1>
 
-    <button onclick="nextPage(3)">
-        Next ➜
-    </button>
+        <h2>Rafia ❤️</h2>
 
-</div>
+        <p>Wishing you happiness, success and endless smiles.</p>
+
+        <button onclick="nextPage(3)">
+            Next ➜
+        </button>
+
+    </div>
+
+</section>
 
 <!-- PAGE 4 -->
 
-<div class="page" id="page4">
+<section class="page" id="page4">
 
-    <h1>Happy Birthday</h1>
+    <h1>Pretty Rafia ❤️</h1>
 
-    <h2>Rafia ❤️</h2>
+    <div class="slider">
+
+        <img id="photo" src="photo1.jpg">
+
+    </div>
 
     <button onclick="nextPage(4)">
         Next ➜
     </button>
 
-</div>
+</section>
 
 <!-- PAGE 5 -->
 
-<div class="page" id="page5">
+<section class="page" id="page5">
 
-<p>
-Happy Birthday, Rafia ❤️
-<br><br>
+    <div class="message">
 
-You are truly one of the most charming and wonderful people I have ever seen.
+        <h1>Happy Birthday, Rafia ❤️</h1>
 
-I have never seen anyone quite like you, and to me, you are the prettiest person both inside and out.
+        <p>
+            You are truly one of the most charming and wonderful people I have ever seen.
 
-<br><br>
+            I have never seen anyone quite like you, and to me, you are the prettiest person both inside and out.
 
-Stay happy, stay honest, and keep chasing your dreams. Wishing you a beautiful future and an amazing year ahead.
+            <br><br>
 
-<br><br>
+            Stay happy, stay honest, and keep chasing your dreams.
 
-— Sabbir ❤️
-</p>
+            Wishing you a beautiful future and an amazing year ahead.
 
-</div>
+            <br><br>
+
+            — Sabbir ❤️
+        </p>
+
+    </div>
+
+</section>
 
 <script src="script.js"></script>
 
