@@ -1,20 +1,41 @@
-const enterBtn = document.getElementById("enterBtn");
-
-const intro = document.getElementById("intro");
-
-const main = document.getElementById("main");
+const pages = document.querySelectorAll(".page");
 
 const untilMusic = document.getElementById("untilMusic");
-
 const birthdayMusic = document.getElementById("birthdayMusic");
 
-enterBtn.onclick = () => {
+function nextPage(pageNumber){
 
-    intro.style.display = "none";
+    pages[pageNumber - 1].classList.remove("active");
 
-    main.style.display = "block";
+    pages[pageNumber].classList.add("active");
 
-    untilMusic.play();
+    // Birthday page
+
+    if(pageNumber === 2){
+
+        birthdayMusic.currentTime = 0;
+        birthdayMusic.play();
+
+    }
+
+    // Pretty Rafia page
+
+    if(pageNumber === 3){
+
+        birthdayMusic.pause();
+
+        untilMusic.currentTime = 0;
+        untilMusic.play();
+
+    }
+
+    // Message page
+
+    if(pageNumber === 4){
+
+        untilMusic.pause();
+
+    }
 
 }
 
@@ -25,34 +46,32 @@ const photos = [
     "photo4.jpg"
 ];
 
-let i = 0;
+const photo = document.getElementById("photo");
 
-setInterval(()=>{
+let index = 0;
 
-    i++;
+setInterval(() => {
 
-    if(i >= photos.length){
-        i = 0;
+    if(document.getElementById("page4").classList.contains("active")){
+
+        photo.style.opacity = 0;
+
+        setTimeout(() => {
+
+            index++;
+
+            if(index >= photos.length){
+
+                index = 0;
+
+            }
+
+            photo.src = photos[index];
+
+            photo.style.opacity = 1;
+
+        },500);
+
     }
-
-    document.getElementById("slider").src = photos[i];
 
 },3000);
-
-window.addEventListener("scroll",()=>{
-
-    const birthday =
-    document.getElementById("birthday");
-
-    const top =
-    birthday.getBoundingClientRect().top;
-
-    if(top < 300){
-
-        untilMusic.pause();
-
-        birthdayMusic.play();
-
-    }
-
-});
