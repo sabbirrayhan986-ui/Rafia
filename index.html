@@ -1,89 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Rafia ❤️</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rafia ❤️</title>
 
-<link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<audio id="untilMusic" loop>
-    <source src="until.mp3">
+<audio id="untilMusic">
+    <source src="until.mp3" type="audio/mpeg">
 </audio>
 
 <audio id="birthdayMusic">
-    <source src="birthday.mp3">
+    <source src="birthday.mp3" type="audio/mpeg">
 </audio>
 
-<div id="intro">
+<!-- PAGE 1 -->
+
+<div class="page active" id="page1">
 
     <h1>Let's Celebrate</h1>
-
     <h2>Rafia's Birthday ❤️</h2>
 
-    <button id="enterBtn">
+    <button onclick="nextPage(1)">
         Enter The Garden 🌹
     </button>
 
 </div>
 
-<div id="main">
+<!-- PAGE 2 -->
 
-    <div class="petals"></div>
+<div class="page" id="page2">
 
-    <section class="garden">
+    <div class="flowers">
+        🌹 🌷 🌸 🌺
+    </div>
 
-        <div class="flower rose"></div>
-        <div class="flower tulip"></div>
-        <div class="flower lily"></div>
-        <div class="flower gerbera"></div>
+    <h1>Welcome To The Garden</h1>
 
-        <h1>Welcome Rafia ❤️</h1>
+    <button onclick="nextPage(2)">
+        Next ➜
+    </button>
 
-    </section>
+</div>
 
-    <section class="gallery">
+<!-- PAGE 3 -->
 
-        <h2>Our Memories ❤️</h2>
+<div class="page" id="page3">
 
-        <img id="slider" src="photo1.jpg">
+    <h1>Pretty Rafia ❤️</h1>
 
-    </section>
+    <img id="photo" src="photo1.jpg">
 
-    <section id="birthday">
+    <button onclick="nextPage(3)">
+        Next ➜
+    </button>
 
-        <h1>Happy Birthday</h1>
+</div>
 
-        <h2>Rafia ❤️</h2>
+<!-- PAGE 4 -->
 
-    </section>
+<div class="page" id="page4">
 
-    <section class="message">
+    <h1>Happy Birthday</h1>
 
-        <p>
-        Happy Birthday, Rafia ❤️
-        <br><br>
+    <h2>Rafia ❤️</h2>
 
-        You are truly one of the most charming and wonderful people I have ever seen.
+    <button onclick="nextPage(4)">
+        Next ➜
+    </button>
 
-        I have never seen anyone quite like you, and to me, you are the prettiest person both inside and out.
+</div>
 
-        <br><br>
+<!-- PAGE 5 -->
 
-        Stay happy, stay honest, and keep chasing your dreams.
+<div class="page" id="page5">
 
-        Wishing you a beautiful future and an amazing year ahead.
+<p>
+Happy Birthday, Rafia ❤️
+<br><br>
 
-        <br><br>
+You are truly one of the most charming and wonderful people I have ever seen.
 
-        — Sabbir ❤️
-        </p>
+I have never seen anyone quite like you, and to me, you are the prettiest person both inside and out.
 
-    </section>
+<br><br>
+
+Stay happy, stay honest, and keep chasing your dreams. Wishing you a beautiful future and an amazing year ahead.
+
+<br><br>
+
+— Sabbir ❤️
+</p>
 
 </div>
 
