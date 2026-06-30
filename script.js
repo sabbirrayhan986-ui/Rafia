@@ -9,16 +9,12 @@ function nextPage(pageNumber){
 
     pages[pageNumber].classList.add("active");
 
-    // Birthday page
-
     if(pageNumber === 2){
 
         birthdayMusic.currentTime = 0;
         birthdayMusic.play();
 
     }
-
-    // Pretty Rafia page
 
     if(pageNumber === 3){
 
@@ -28,8 +24,6 @@ function nextPage(pageNumber){
         untilMusic.play();
 
     }
-
-    // Message page
 
     if(pageNumber === 4){
 
@@ -52,7 +46,7 @@ let index = 0;
 
 setInterval(() => {
 
-    if(document.getElementById("page4").classList.contains("active")){
+    if(document.getElementById("page4").classList.contains("active")) {
 
         photo.style.opacity = 0;
 
@@ -61,9 +55,7 @@ setInterval(() => {
             index++;
 
             if(index >= photos.length){
-
                 index = 0;
-
             }
 
             photo.src = photos[index];
