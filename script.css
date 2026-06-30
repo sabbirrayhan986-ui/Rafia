@@ -1,0 +1,95 @@
+body{
+    margin:0;
+    background:#050505;
+    color:white;
+    font-family:Arial;
+    overflow-x:hidden;
+}
+
+.page{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+h1{
+    font-size:70px;
+    color:#ff7db4;
+}
+
+h2{
+    color:white;
+}
+
+button{
+    padding:18px 40px;
+    border:none;
+    border-radius:40px;
+    background:#ff4b8d;
+    color:white;
+    cursor:pointer;
+    font-size:20px;
+}
+
+#website{
+    display:none;
+}
+
+.garden{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.flowers{
+    font-size:80px;
+    animation:bloom 4s infinite;
+}
+
+@keyframes bloom{
+    0%{
+        transform:scale(0.5);
+    }
+
+    50%{
+        transform:scale(1.1);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+}
+
+.gallery{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.slider img{
+    width:350px;
+    border-radius:30px;
+    box-shadow:0 0 30px pink;
+}
+
+#birthday{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.message{
+    padding:100px 30px;
+    text-align:center;
+    font-size:22px;
+    max-width:900px;
+    margin:auto;
+}
