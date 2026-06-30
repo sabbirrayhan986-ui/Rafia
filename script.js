@@ -1,18 +1,22 @@
 const enterBtn = document.getElementById("enterBtn");
 
+const intro = document.getElementById("intro");
+
+const main = document.getElementById("main");
+
 const untilMusic = document.getElementById("untilMusic");
 
 const birthdayMusic = document.getElementById("birthdayMusic");
 
 enterBtn.onclick = () => {
 
-    document.getElementById("startPage").style.display = "none";
+    intro.style.display = "none";
 
-    document.getElementById("website").style.display = "block";
+    main.style.display = "block";
 
     untilMusic.play();
 
-};
+}
 
 const photos = [
     "photo1.jpg",
@@ -21,19 +25,17 @@ const photos = [
     "photo4.jpg"
 ];
 
-let index = 0;
+let i = 0;
 
-setInterval(() => {
+setInterval(()=>{
 
-    index++;
+    i++;
 
-    if(index >= photos.length){
-
-        index = 0;
-
+    if(i >= photos.length){
+        i = 0;
     }
 
-    document.getElementById("slide").src = photos[index];
+    document.getElementById("slider").src = photos[i];
 
 },3000);
 
