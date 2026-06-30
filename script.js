@@ -69,49 +69,64 @@ setInterval(() => {
 
 },3000);
 const canvas = document.getElementById("fireworks");
-const ctx = canvas.getContext("2d");
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+if(canvas){
 
-let particles = [];
+    const ctx = canvas.getContext("2d");
 
-function createFirework() {
-    let x = Math.random() * canvas.width;
-    let y = Math.random() * canvas.height / 2;
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-    for (let i = 0; i < 50; i++) {
-        particles.push({
-            x: x,
-            y: y,
-            radius: 2,
-            dx: (Math.random() - 0.5) * 8,
-            dy: (Math.random() - 0.5) * 8,
-            alpha: 1
-        });
-    }
-}
+    let particles = [];
 
-function animate() {
-    ctx.clearRect(0,0,canvas.width,canvas.height);
+    function createFirework() {
 
-    particles.forEach((p,index)=>{
-        p.x += p.dx;
-        p.y += p.dy;
-        p.alpha -= 0.01;
+        let x = Math.random() * canvas.width;
+        let y = Math.random() * canvas.height / 2;
 
-        ctx.beginPath();
-        ctx.arc(p.x,p.y,p.radius,0,Math.PI*2);
-        ctx.fillStyle = `rgba(255,215,0,${p.alpha})`;
-        ctx.fill();
+        for (let i = 0; i < 50; i++) {
 
-        if(p.alpha <= 0){
-            particles.splice(index,1);
+            particles.push({
+                x,
+                y,
+                radius: 2,
+                dx: (Math.random() - 0.5) * 8,
+                dy: (Math.random() - 0.5) * 8,
+                alpha: 1
+            });
+
         }
+    }
+
+    function animate() {
+
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+
+        particles.forEach((p,index)=>{
+
+            p.x += p.dx;
+            p.y += p.dy;
+            p.alpha -= 0.01;
+
+            ctx.beginPath();
+            ctx.arc(p.x,p.y,p.radius,0,Math.PI*2);
+            ctx.fillStyle = `rgba(255,215,0,${p.alpha})`;
+            ctx.fill();
+
+            if(p.alpha <= 0){
+                particles.splice(index,1);
+            }
+
+        });
+
+        requestAnimationFrame(animate);
+    }
+
+    setInterval(createFirework,1000);
+    animate();
+
+    window.addEventListener("resize", () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
     });
-
-    requestAnimationFrame(animate);
 }
-
-setInterval(createFirework,1000);
-animate();
