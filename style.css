@@ -1,12 +1,12 @@
 body{
     margin:0;
+    overflow-x:hidden;
     background:#050505;
     color:white;
     font-family:Arial;
-    overflow-x:hidden;
 }
 
-.page{
+#intro{
     height:100vh;
     display:flex;
     flex-direction:column;
@@ -14,54 +14,80 @@ body{
     align-items:center;
 }
 
-h1{
+#intro h1{
     font-size:70px;
-    color:#ff7db4;
-}
-
-h2{
-    color:white;
+    color:pink;
 }
 
 button{
-    padding:18px 40px;
+    padding:20px 40px;
     border:none;
     border-radius:40px;
-    background:#ff4b8d;
+    font-size:22px;
+    background:#ff4f91;
     color:white;
     cursor:pointer;
-    font-size:20px;
 }
 
-#website{
+#main{
     display:none;
 }
 
 .garden{
     height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
+    position:relative;
+    background:linear-gradient(#050505,#120a08);
+    overflow:hidden;
 }
 
-.flowers{
-    font-size:80px;
-    animation:bloom 4s infinite;
+.garden h1{
+    position:absolute;
+    top:45%;
+    width:100%;
+    text-align:center;
+    color:white;
+}
+
+.flower{
+    position:absolute;
+    bottom:-200px;
+    width:80px;
+    height:150px;
+    animation:bloom 4s forwards;
+}
+
+.rose{
+    left:15%;
+    background:red;
+}
+
+.tulip{
+    left:35%;
+    background:pink;
+}
+
+.lily{
+    left:55%;
+    background:white;
+}
+
+.gerbera{
+    left:75%;
+    background:orange;
 }
 
 @keyframes bloom{
-    0%{
-        transform:scale(0.5);
-    }
 
-    50%{
-        transform:scale(1.1);
+    0%{
+        transform:translateY(200px) scale(0);
+        opacity:0;
     }
 
     100%{
-        transform:scale(1);
+        transform:translateY(0) scale(1);
+        opacity:1;
     }
+
 }
 
 .gallery{
@@ -72,9 +98,9 @@ button{
     align-items:center;
 }
 
-.slider img{
+#slider{
     width:350px;
-    border-radius:30px;
+    border-radius:20px;
     box-shadow:0 0 30px pink;
 }
 
@@ -90,6 +116,4 @@ button{
     padding:100px 30px;
     text-align:center;
     font-size:22px;
-    max-width:900px;
-    margin:auto;
 }
