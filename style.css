@@ -1,268 +1,81 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+const pages = document.querySelectorAll(".page");
 
-body{
-    overflow:hidden;
-    background:#fff8f7;
-    font-family:'Poppins',sans-serif;
-}
+let currentPage = 0;
 
-.page{
-    position:absolute;
-    width:100%;
-    height:100vh;
-    top:0;
-    left:0;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    opacity:0;
-    visibility:hidden;
-    transition:1s;
-    background:linear-gradient(
-        180deg,
-        #fff8f7,
-        #ffe9ef,
-        #fff5f0
-    );
-}
+const untilMusic = document.getElementById("untilMusic");
+const birthdayMusic = document.getElementById("birthdayMusic");
 
-.page.active{
-    opacity:1;
-    visibility:visible;
-}
+function nextPage(pageNumber){
 
-.content,
-.garden,
-.birthday-box,
-.message{
-    text-align:center;
-    padding:30px;
-}
+    pages[pageNumber - 1].classList.remove("active");
 
-h1{
-    font-family:'Cormorant Garamond',serif;
-    font-size:70px;
-    color:#d6336c;
-    margin-bottom:20px;
-}
+    pages[pageNumber].classList.add("active");
 
-h2{
-    font-size:40px;
-    color:#ff4d88;
-    margin-bottom:15px;
-}
+    /* PAGE 3 = Birthday */
 
-h3{
-    font-size:32px;
-    color:#555;
-    margin-bottom:40px;
-}
+    if(pageNumber === 2){
 
-p{
-    font-size:20px;
-    color:#555;
-    line-height:1.8;
-    max-width:800px;
-}
+        birthdayMusic.currentTime = 0;
+        birthdayMusic.play();
 
-button{
-    margin-top:40px;
-    padding:18px 45px;
-    border:none;
-    border-radius:50px;
-    background:#ff5d8f;
-    color:white;
-    font-size:20px;
-    cursor:pointer;
-    transition:0.4s;
-    box-shadow:0 10px 30px rgba(255,93,143,0.3);
-}
-
-button:hover{
-    transform:translateY(-5px);
-    box-shadow:0 20px 40px rgba(255,93,143,0.4);
-}
-
-/* PHOTO */
-
-.slider{
-    margin:40px 0;
-}
-
-.slider img{
-    width:320px;
-    height:450px;
-    object-fit:cover;
-    border-radius:30px;
-    box-shadow:0 15px 40px rgba(0,0,0,0.15);
-    transition:1s;
-}
-
-/* FLOWERS */
-
-.garden{
-    position:relative;
-}
-
-.flower{
-    position:absolute;
-    bottom:-180px;
-    width:70px;
-    height:180px;
-    border-radius:40px 40px 0 0;
-    animation:bloom 4s forwards;
-}
-
-.rose{
-    left:15%;
-    background:#ff4d6d;
-}
-
-.lily{
-    left:35%;
-    background:#ffffff;
-}
-
-.tulip{
-    left:60%;
-    background:#ff85a2;
-}
-
-.gerbera{
-    left:80%;
-    background:#ffae42;
-}
-
-@keyframes bloom{
-
-    0%{
-        transform:translateY(250px) scale(0);
-        opacity:0;
     }
 
-    100%{
-        transform:translateY(0) scale(1);
-        opacity:1;
+    /* PAGE 4 = Pretty Rafia */
+
+    if(pageNumber === 3){
+
+        birthdayMusic.pause();
+
+        untilMusic.currentTime = 0;
+        untilMusic.play();
+
+    }
+
+    /* PAGE 5 = Message */
+
+    if(pageNumber === 4){
+
+        untilMusic.pause();
+
     }
 
 }
 
-/* PETALS */
+/* PHOTO SLIDESHOW */
 
-.petals{
-    position:fixed;
-    width:100%;
-    height:100%;
-    pointer-events:none;
-    overflow:hidden;
-    z-index:999;
-}
+const photos = [
+    "photo1.jpg",
+    "photo2.jpg",
+    "photo3.jpg",
+    "photo4.jpg"
+];
 
-.petals span{
-    position:absolute;
-    width:18px;
-    height:18px;
-    background:#ffb6c1;
-    border-radius:50% 0;
-    opacity:.7;
-    animation:fall 12s linear infinite;
-}
+const photo = document.getElementById("photo");
 
-.petals span:nth-child(1){
-    left:5%;
-    animation-delay:0s;
-}
+let index = 0;
 
-.petals span:nth-child(2){
-    left:20%;
-    animation-delay:2s;
-}
+setInterval(() => {
 
-.petals span:nth-child(3){
-    left:35%;
-    animation-delay:4s;
-}
+    if(document.getElementById("page4").classList.contains("active")){
 
-.petals span:nth-child(4){
-    left:50%;
-    animation-delay:6s;
-}
+        photo.style.opacity = 0;
 
-.petals span:nth-child(5){
-    left:65%;
-    animation-delay:1s;
-}
+        setTimeout(() => {
 
-.petals span:nth-child(6){
-    left:75%;
-    animation-delay:3s;
-}
+            index++;
 
-.petals span:nth-child(7){
-    left:85%;
-    animation-delay:5s;
-}
+            if(index >= photos.length){
 
-.petals span:nth-child(8){
-    left:95%;
-    animation-delay:7s;
-}
+                index = 0;
 
-@keyframes fall{
+            }
 
-    0%{
-        transform:translateY(-100px) rotate(0deg);
+            photo.src = photos[index];
+
+            photo.style.opacity = 1;
+
+        },500);
+
     }
 
-    100%{
-        transform:translateY(110vh) rotate(360deg);
-    }
-
-}
-
-/* MESSAGE */
-
-.message{
-    max-width:900px;
-}
-
-.message p{
-    font-size:24px;
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-    h1{
-        font-size:50px;
-    }
-
-    h2{
-        font-size:30px;
-    }
-
-    h3{
-        font-size:24px;
-    }
-
-    p{
-        font-size:18px;
-    }
-
-    .slider img{
-        width:280px;
-        height:380px;
-    }
-
-    button{
-        padding:16px 35px;
-        font-size:18px;
-    }
-
-}
+},3000);
